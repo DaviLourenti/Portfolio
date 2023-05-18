@@ -123,11 +123,41 @@ footer {
 
 
 /*estilo da "apresentação" e do "sobre"*/
+
+#apresentação {
+    transition: transform 0.8s ease;
+}
+
+#apresentação.expandido:hover {
+    transform: scale(1.05);
+    /* Ajuste a escala desejada */
+}
+
+#apresentação+section {
+    transform: scale(1);
+    /* Redefine a escala para o tamanho original */
+}
+
+#sobre {
+    transition: transform 0.8s ease;
+}
+
+#sobre.expandido:hover {
+    transform: scale(1.05);
+    /* Ajuste a escala desejada */
+}
+
+#sobre+section {
+    transform: scale(1);
+    /* Redefine a escala para o tamanho original */
+}
+
 body {
     font-family: Arial, sans-serif;
     font-size: 16px;
     line-height: 1.5;
     color: #333;
+    overflow-x: hidden;
 }
 
 .texto, .img_apresentação {
@@ -210,7 +240,7 @@ body {
 }
 
 .card-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-25px);
 }
 
 .card-item figure {
@@ -374,11 +404,4 @@ body {
 
 .postagem-link:hover {
     text-decoration: underline;
-}
-
-
-/*estilo carrossel*/
-.postagens-carousel .postagem img {
-    max-width: 400px;
-    max-height: 400px;
 }
