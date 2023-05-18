@@ -30,50 +30,84 @@ section {
 
 /* Estilos para o formulário de contato */
 #contato {
-    background-color: #f5d7d7;
-    padding: 50px;
+    background-color: #f2f2f2;
+    padding: 40px;
 }
 
-form {
+.contato-wrapper {
     display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.contato-info {
+    flex: 1 1 50%;
+}
+
+.contato-form {
+    flex: 1 1 50%;
+}
+
+.contato-info h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contato-info p {
+    margin-bottom: 15px;
+}
+
+.contato-info ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.contato-info li {
+    margin-bottom: 5px;
+}
+
+.contato-form h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.contato-form form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
 }
 
 label {
-    font-size: 18px;
-    margin-bottom: 10px;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 input[type="text"],
 input[type="email"],
 textarea {
-    font-size: 16px;
+    width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
-    border: none;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-textarea {
-    height: 150px;
 }
 
 input[type="submit"] {
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #4CAF50;
+    color: white;
     border: none;
-    border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 input[type="submit"]:hover {
-    background-color: #0062cc;
+    background-color: #45a049;
 }
+
 
 /* Estilos para o rodapé */
 footer {
@@ -155,107 +189,59 @@ body {
 }
 
 
-
-/*estilo cards dos itens do portifolio*/
-.circle {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: #eee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 20px;
-}
-
-.circle img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 50%;
-}
-
-.content {
-    display: flex;
-    flex-direction: column;
-}
-
-
-
+/*estilo cards portifolio*/
 .card-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 
 .card-item {
-    width: 33.33%;
-    padding: 20px;
-    box-sizing: border-box;
+    width: 400px;
+    margin: 20px;
+    background-color: #f2f2f2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
 }
 
-figure {
+.card-item:hover {
+    transform: translateY(-5px);
+}
+
+.card-item figure {
     margin: 0;
     padding: 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+}
+
+.card-item .circle {
+    width: 100%;
     overflow: hidden;
-    transition: transform 0.3s ease-in-out;
 }
 
-figure:hover {
-    transform: translateY(-10px);
-}
-
-.circle {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin: 20px auto;
-    overflow: hidden;
-    background-color: #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.circle img {
-    display: block;
+.card-item img {
     width: 100%;
     height: auto;
-    max-width: none;
-    border: none;
-    margin: 0;
-    padding: 0;
+    display: block;
 }
 
-figcaption {
-    margin: 0;
+.card-item figcaption {
     padding: 20px;
-    text-align: center;
-    background-color: #f9f9f9;
 }
 
-h3 {
+.card-item h3 {
+    font-size: 18px;
     margin: 0;
-    padding: 0;
-    font-size: 1.5rem;
+    margin-bottom: 10px;
 }
 
-a {
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
+.card-item p {
+    margin: 0;
 }
-
-p {
-    margin: 10px 0 0 0;
-    padding: 0;
-    font-size: 1rem;
-}
-
-
 
 /*estilo redes sociais do rodapé*/
 .redes-sociais {
@@ -281,4 +267,118 @@ p {
 
 .redes-sociais a:hover {
     color: #333;
+}
+
+
+/*rede sociais da apresentação*/
+.cta {
+    margin-top: 20px;
+}
+
+.social-media {
+    list-style: none;
+    padding: 0;
+}
+
+.social-media li {
+    margin: 0 10px;
+}
+
+.social-media li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.social-media li a:hover {
+    color: #007bff;
+}
+
+
+
+
+/*estilo da partição "outras coisas sobre mim"*/
+#outras-coisas {
+    text-align: center;
+    padding: 40px 0;
+}
+
+#outras-coisas h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.postagens {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.postagem {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.postagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.postagem:hover img {
+    transform: scale(1.1);
+}
+
+.postagem-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.postagem:hover .postagem-overlay {
+    opacity: 1;
+}
+
+.postagem-overlay h3 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.postagem-overlay p {
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.postagem-link {
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.postagem-link:hover {
+    text-decoration: underline;
+}
+
+
+/*estilo carrossel*/
+.postagens-carousel .postagem img {
+    max-width: 400px;
+    max-height: 400px;
 }
