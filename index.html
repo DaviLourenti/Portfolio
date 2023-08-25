@@ -3,6 +3,7 @@
 
 <head>
   <title>Meu Portfólio</title>
+
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
@@ -174,33 +175,12 @@
     
     <hr>
 
-    <section id="outras-coisas">
+    <section id="outras-coisas" style="background-color:#f2f2f2">
         <h2>Posts recentes das minhas redes sociais</h2>
         <div class="postagens">
-            <div class="postagem">
-                <img src="https://via.placeholder.com/300x200.png" alt="Postagem 1">
-                <div class="postagem-overlay">
-                    <h3>Título da Postagem 1</h3>
-                    <p>Descrição da postagem 1.</p>
-                    <a href="#" class="postagem-link" target="_blank">Saiba mais</a>
-                </div>
-            </div>
-            <div class="postagem">
-                <img src="https://via.placeholder.com/300x200.png" alt="Postagem 2">
-                <div class="postagem-overlay">
-                    <h3>Título da Postagem 2</h3>
-                    <p>Descrição da postagem 2.</p>
-                    <a href="#" class="postagem-link" target="_blank">Saiba mais</a>
-                </div>
-            </div>
-            <div class="postagem">
-                <img src="https://via.placeholder.com/300x200.png" alt="Postagem 3">
-                <div class="postagem-overlay">
-                    <h3>Título da Postagem 3</h3>
-                    <p>Descrição da postagem 3.</p>
-                    <a href="#" class="postagem-link" target="_blank">Saiba mais</a>
-                </div>
-            </div>
+            <!-- SnapWidget -->
+            <iframe src="https://snapwidget.com/embed/1033835" class="snapwidget-widget" allowtransparency="true" frameborder="0"
+                scrolling="no" style="border:none; overflow:hidden;  width:960px; height:529px"></iframe>
         </div>
     </section>
 
@@ -225,7 +205,7 @@
                 </div>
                 <div class="contato-form">
                     <h2>Contato</h2>
-                    <form>
+                    <form id="contact-form">
                         <div class="form-group">
                             <label for="nome">Nome:</label>
                             <input type="text" id="nome" name="nome" required>
@@ -241,28 +221,66 @@
                             <textarea id="mensagem" name="mensagem" required></textarea>
                         </div>
         
-                        <div class="form-group">
-                            <input type="submit" value="Enviar">
-                        </div>
+                        
+                        <input class="form-group" id="myButton" type="submit" value="Enviar">
+                        
                     </form>
                 </div>
             </div>
         </section>
     </div>
     
-  </main>
+    </main>
   
-  <hr>
+    <hr>
 
-<footer>
-    <p>&copy; 2023 - Meu Portfólio</p>
-    <ul class="redes-sociais">
-        <li><a href="https://t.co/0Wj6a457Xl" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-        <li><a href="https://twitter.com/DLourenti" target="_blank"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://t.co/NpIegC7AvV" target="_blank"><i class="fab fa-github"></i></a></li>
-        <li><a href="https://loubragi.blogspot.com/" target="_blank"><i class="fab fa-blogger"></i></a></li>
-    </ul>
-</footer>
+    <footer>
+        <p>&copy; 2023 - Meu Portfólio</p>
+        <ul class="redes-sociais">
+            <li><a href="https://t.co/0Wj6a457Xl" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://twitter.com/DLourenti" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://t.co/NpIegC7AvV" target="_blank"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://loubragi.blogspot.com/" target="_blank"><i class="fab fa-blogger"></i></a></li>
+        </ul>
+    </footer>
 
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function () {
+            // Configuração do EmailJS
+            emailjs.init("EiOWaUv0VXeIQcYWV"); // Substitua "SEU_USER_ID" pelo User ID do seu usuário do EmailJS
+
+            // Manipulador do evento de envio do formulário
+            document.getElementById('contact-form').addEventListener('submit', function (event) {
+                event.preventDefault(); // Impede o envio tradicional do formulário
+                var button = document.getElementById("myButton");
+
+                // Parâmetros do e-mail a ser enviado
+                var templateParams = {
+                    name: document.getElementById('nome').value,
+                    email: document.getElementById('email').value,
+                    message: document.getElementById('mensagem').value
+                };
+
+                button.value = "carregando";
+                // Envio do e-mail
+                emailjs.send("service_uuz7aqo", "template_t79umya", templateParams)
+                    .then(function (response) {
+                        button.value = "E-mail enviado com sucesso!";
+                        console.log("E-mail enviado com sucesso!", response.status, response.text);
+                        document.getElementById('contact-form').reset()
+                        //alert("E-mail enviado com sucesso!");
+
+                    }, function (error) {
+                        button.value = "Erro :-(";
+                        console.error("Ocorreu um erro ao enviar o e-mail:", error);
+                        alert("Ocorreu um erro ao enviar o e-mail.");
+                        
+                    });
+            });
+        })();
+    </script>
 </body>
+
+
 </html>
